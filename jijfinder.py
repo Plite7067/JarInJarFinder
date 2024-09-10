@@ -36,10 +36,11 @@ with open("jijfiles.log", "w") as log:
                 for mod_no in range(0, len(jij_data['jars'])):
                     artifact = jij_data['jars'][mod_no]['identifier']['artifact']
                     name = jar.filename.rsplit('/', 1)[-1]
-                    # write mod name to log
-                    log.write((indent_space * indent) + (artifact + " from mod file " + name).strip() + '\n')
                     # go into mod to check for new mods
                     path = jij_data['jars'][mod_no]['path']
+                    # write mod name and file name to log
+                    log.write((indent_space * indent) + (artifact + "(" + path.rsplit('/', 1)[1] + ")" + " inside mod file " + name).strip() + '\n')
+                    # run again with any jars inside
                     recursive_func(jar.open(path), indent + 1)
             # this fires if a mod has no jar in jar mods.
             except KeyError:
