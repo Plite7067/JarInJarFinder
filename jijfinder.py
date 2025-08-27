@@ -18,7 +18,7 @@ for file in remove:
 # create the log file
 with open("jijfiles.log", "w") as log:
     print("Scanning...")
-    # adds a tiny delay, to increase 'perceived value'
+    # adds a tiny delay, to increase 'perceived value'(to clarify, this is mainly for me - I find I get greater satisfaction if there's a tiny break, so it feels like it's doing something)
     sleep(0.2)
     log.write("Jar in Jar Mods:\n")
 
